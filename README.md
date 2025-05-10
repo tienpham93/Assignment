@@ -207,7 +207,7 @@ npx playwright install chromium
 yarn test:ui
 ```
 
-- Run API test
+2. Run API test
 - Should start mock server in advance
 ```
 yarn mock:start
@@ -218,7 +218,7 @@ yarn mock:start
 yarn test:api
 ```
 
-- Run tests with docker compose
+3. Run tests with docker compose
 - Should have docker installed already in your machine
 ```
 docker-compose up
