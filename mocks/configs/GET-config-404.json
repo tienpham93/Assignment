@@ -1,0 +1,23 @@
+{
+    "predicates": [
+        {
+            "equals": {
+                "method": "GET",
+                "path": "/v1/profile/404"
+            }
+        }
+    ],
+    "responses": [
+        {
+            "is": {
+                "statusCode": 404,
+                "headers": {
+                    "Content-Type": "application/json"
+                },
+                "body": {
+                    "error": "Not Found"
+                }
+            }
+        }
+    ]
+}

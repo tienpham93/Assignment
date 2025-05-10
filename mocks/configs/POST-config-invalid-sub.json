@@ -1,0 +1,46 @@
+{
+    "predicates": [
+        {
+            "and": [
+                {
+                    "equals": {
+                        "method": "POST",
+                        "path": "/v1/profile",
+                        "headers": {
+                            "Content-Type": "application/json"
+                        }
+                    }
+                },
+                {
+                    "matches": {
+                        "body": {
+                            "username": ".*",
+                            "dateOfBirth": "\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}.*", 
+                            "gender": "(MALE|FEMALE|OTHER)"
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "not": {
+                "matches": {
+                    "body": {
+                        "subscribedMarketing": "(true|false)"
+                    }
+                }
+            }
+        }
+    ],
+    "responses": [
+        {
+            "is": {
+                "statusCode": 400,
+                "headers": { "Content-Type": "application/json" },
+                "body": {
+                    "error": "Invalid value for field: subscribedMarketing"
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,50 @@
+{
+    "predicates": [
+        {
+            "and": [
+                {
+                    "equals": {
+                        "method": "POST",
+                        "path": "/v1/profile",
+                        "headers": {
+                            "Content-Type": "application/json"
+                        }
+                    }
+                },
+                {
+                    "matches": {
+                        "body": {
+                            "username": ".*",
+                            "gender": "(MALE|FEMALE|OTHER)", 
+                            "subscribedMarketing": "(true|false)"
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "or": [
+                {
+                    "not": {
+                        "exists": {
+                            "body": {
+                                "dateOfBirth": "\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}.*"
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    ],
+    "responses": [
+        {
+            "is": {
+                "statusCode": 400,
+                "headers": { "Content-Type": "application/json" },
+                "body": {
+                    "error": "Missing required fields: dateOfBirth"
+                }
+            }
+        }
+    ]
+}

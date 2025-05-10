@@ -1,0 +1,24 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "username": {
+            "type": "string"
+        },
+        "dateOfBirth": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "gender": {
+            "type": "string",
+            "enum": ["MALE", "FEMALE", "OTHER"]
+        },
+        "subscribedMarketing": {
+            "type": "boolean"
+        }
+    },
+    "required": [
+        "username",
+        "dateOfBirth"
+    ]
+}

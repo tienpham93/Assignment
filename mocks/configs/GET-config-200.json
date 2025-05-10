@@ -1,0 +1,28 @@
+{
+    "predicates": [
+        {
+            "equals": {
+                "method": "GET",
+                "path": "/v1/profile/12345"
+            }
+        }
+    ],
+    "responses": [
+        {
+            "is": {
+                "statusCode": 200,
+                "headers": {
+                    "Content-Type": "application/json"
+                },
+                "body": {
+                    "userId": 12345,
+                    "username": "JohnDoe",
+                    "dateOfBirth": "1990-01-01T00:00:00Z",
+                    "gender": "MALE",
+                    "subscribedMarketing": true,
+                    "hasSetupPreference": false
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,32 @@
+{
+  "name": "limix-assignment",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Tien Pham",
+  "license": "MIT",
+  "scripts": {
+    "test": "playwright test",
+    "test:gui": "npx playwright test --ui",
+    "mock:start": "node mocks/mountebank.js",
+    "test:ui": "npx playwright test e2e/spec/auto-ui/UI_tests.spec.ts",
+    "test:api": "npx playwright test e2e/spec/auto-api/API_tests.spec.ts",
+    "test:docker": "chmod +x dockerscript.sh && ./dockerscript.sh",
+    "test:html": "npx playwright show-report",
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "@faker-js/faker": "^9.7.0",
+    "@types/node": "^22.15.17",
+    "@types/uuid": "^10.0.0",
+    "axios": "^1.9.0",
+    "compromise": "^14.14.4",
+    "mountebank": "^2.9.1",
+    "playwright": "^1.52.0",
+    "prettier": "^3.5.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.52.0"
+  }
+}

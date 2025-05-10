@@ -1,0 +1,38 @@
+{
+    "predicates": [
+        {
+            "and": [
+                {
+                    "equals": {
+                        "method": "POST",
+                        "path": "/v1/profile",
+                        "headers": {
+                            "Content-Type": "application/json"
+                        }
+                    }
+                },
+                {
+                    "matches": {
+                        "body": {
+                            "username": ".*",
+                            "dateOfBirth": "error", 
+                            "gender": "(MALE|FEMALE|OTHER)", 
+                            "subscribedMarketing": "(true|false)"
+                        }
+                    }
+                }
+            ]
+        }
+    ],
+    "responses": [
+        {
+            "is": {
+                "statusCode": 400,
+                "headers": { "Content-Type": "application/json" },
+                "body": {
+                    "error": "Invalid value for field: dateOfBirth"
+                }
+            }
+        }
+    ]
+}

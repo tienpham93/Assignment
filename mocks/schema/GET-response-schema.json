@@ -1,0 +1,26 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "userId": {
+            "type": ["integer"]
+        },
+        "username": {
+            "type": ["string"]
+        },
+        "dateOfBirth": {
+            "type": ["string"],
+            "format": "date-time"
+        },
+        "gender": {
+            "type": ["string", "null"],
+            "enum": ["MALE", "FEMALE", "OTHER"]
+        },
+        "subscribedMarketing": {
+            "type": ["boolean", "null"]
+        },
+        "hasSetupPreference": {
+            "type": ["boolean", "null"]
+        }
+    }
+}
